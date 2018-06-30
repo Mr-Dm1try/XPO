@@ -1,0 +1,7 @@
+C:\Users\mrdmi\source\repos\XPO\First\bin\Debug\First.exe.config
+C:\Users\mrdmi\source\repos\XPO\First\bin\Debug\First.exe
+C:\Users\mrdmi\source\repos\XPO\First\bin\Debug\First.pdb
+C:\Users\mrdmi\source\repos\XPO\First\obj\Debug\FirstTask.csprojAssemblyReference.cache
+C:\Users\mrdmi\source\repos\XPO\First\obj\Debug\FirstTask.csproj.CoreCompileInputs.cache
+C:\Users\mrdmi\source\repos\XPO\First\obj\Debug\First.exe
+C:\Users\mrdmi\source\repos\XPO\First\obj\Debug\First.pdb
