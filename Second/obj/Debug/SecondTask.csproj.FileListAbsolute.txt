@@ -1,0 +1,15 @@
+C:\Users\mrdmi\source\repos\XPO\Second\bin\Debug\Second.exe.config
+C:\Users\mrdmi\source\repos\XPO\Second\bin\Debug\Second.exe
+C:\Users\mrdmi\source\repos\XPO\Second\bin\Debug\Second.pdb
+C:\Users\mrdmi\source\repos\XPO\Second\obj\Debug\SecondTask.csprojAssemblyReference.cache
+C:\Users\mrdmi\source\repos\XPO\Second\obj\Debug\MainWindow.g.cs
+C:\Users\mrdmi\source\repos\XPO\Second\obj\Debug\App.g.cs
+C:\Users\mrdmi\source\repos\XPO\Second\obj\Debug\Second_MarkupCompile.cache
+C:\Users\mrdmi\source\repos\XPO\Second\obj\Debug\Second_MarkupCompile.lref
+C:\Users\mrdmi\source\repos\XPO\Second\obj\Debug\MainWindow.baml
+C:\Users\mrdmi\source\repos\XPO\Second\obj\Debug\Second.g.resources
+C:\Users\mrdmi\source\repos\XPO\Second\obj\Debug\Second.Properties.Resources.resources
+C:\Users\mrdmi\source\repos\XPO\Second\obj\Debug\SecondTask.csproj.GenerateResource.cache
+C:\Users\mrdmi\source\repos\XPO\Second\obj\Debug\SecondTask.csproj.CoreCompileInputs.cache
+C:\Users\mrdmi\source\repos\XPO\Second\obj\Debug\Second.exe
+C:\Users\mrdmi\source\repos\XPO\Second\obj\Debug\Second.pdb
