@@ -15,8 +15,8 @@ namespace SecondTask.Classes {
         public String SecondCoords { get; private set; }
 
         public OSRM_PairOfCities(Double x1, Double y1, Double x2, Double y2) {
-            FirstCoords = x1.ToString() + ',' + y1.ToString();
-            SecondCoords = x2.ToString() + ',' + y2.ToString();
+            FirstCoords = x1.ToString().Replace(',', '.') + ',' + y1.ToString().Replace(',', '.');
+            SecondCoords = x2.ToString().Replace(',', '.') + ',' + y2.ToString().Replace(',', '.');
 
             DoRequest();
         }
@@ -35,17 +35,33 @@ namespace SecondTask.Classes {
             DoRequest();
         }
 
+        public OSRM_PairOfCities(City city1, City city2) {
+            FirstCoords = city1.GetStrCoords();
+            SecondCoords = city2.GetStrCoords();
+
+            DoRequest();
+        }
+
         private void DoRequest() {
-            HttpWebRequest httpRequest = (HttpWebRequest) WebRequest.Create(url + "/" + FirstCoords + ";" + SecondCoords);
-            HttpWebResponse httpResponse = (HttpWebResponse) httpRequest.GetResponse();
+            Boolean flag;
+            do {
+                flag = false;
+                try {
+                    HttpWebRequest httpRequest = (HttpWebRequest)WebRequest.Create(url + "/" + FirstCoords + ";" + SecondCoords);
+                    HttpWebResponse httpResponse = (HttpWebResponse)httpRequest.GetResponse();
 
-            String response;
+                    String response;
 
-            using (StreamReader reader = new StreamReader(httpResponse.GetResponseStream())) {
-                response = reader.ReadToEnd();
-            }
+                    using (StreamReader reader = new StreamReader(httpResponse.GetResponseStream())) {
+                        response = reader.ReadToEnd();
+                    }
 
-            Pair = JsonConvert.DeserializeObject<PairOfCities>(response);
+                    Pair = JsonConvert.DeserializeObject<PairOfCities>(response);
+                }
+                catch (Exception) {
+                    flag = true;
+                }
+            } while (flag);
         }
 
         public Double GetDistance() {

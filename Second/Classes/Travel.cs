@@ -24,15 +24,16 @@ namespace SecondTask.Classes {
             
         }
 
-        public void AddCity(String name, Double x, Double y) {
-            Cities.Add(new City(name, x, y));
+        public void AddCity(City newCity) {
+            Cities.Add(newCity);
+
             if(Cities.Count > 1)
-                AddPath(Cities.Last());            
+                AddPath();            
         }
 
-        private void AddPath(City newCity) {
+        private void AddPath() {
             for (int i = 0; i < Cities.Count - 1; i++) {
-                Int32 temp = newCity.GetPathLength(Cities[i]);
+                Int32 temp = Cities.Last().GetPathLength(Cities[i]);
                 Graph[Cities.Count - 1, i] = temp;
                 Graph[i, Cities.Count - 1] = temp;
             }
@@ -48,9 +49,15 @@ namespace SecondTask.Classes {
 
             Algorithm(1, 0, currRoute, vertCount, adjMatx);
 
-            Int32 sec = (Int32) Math.Round(RouteLength / 0.025); //90 км/ч в км/с
+            Int32 sec = 0;
+            for (int i = 0; i < vertCount - 1; i++) {
+                OSRM_PairOfCities newPair = new OSRM_PairOfCities(Cities[Route[i]], Cities[Route[i + 1]]);
+                sec += (Int32) Math.Round(newPair.GetDuration());
+            }
 
             AproxTime = (sec / 3600).ToString() + " h  " + ((sec % 3600) / 60).ToString() + " m";
+
+            //Int32 sec = (Int32) Math.Round(RouteLength / 0.025); //90 км/ч в км/с
         }
 
         private void Algorithm(Int32 step, Int32 currVert, Int32[] currRoute, Int32 vertCount, Int32[,] matx) {
@@ -80,14 +87,14 @@ namespace SecondTask.Classes {
             if (sum < RouteLength) {
                 RouteLength = sum;
                 Route = new List<Int32>();
-                foreach (Int32 i in currRoute)
+                foreach (int i in currRoute)
                     Route.Add(i);
             }
         }
 
         public String GetRoute() {
             String route = "";
-            for (Int32 i = 0; i < Route.Count; i++) {
+            for (int i = 0; i < Route.Count; i++) {
                 if (i < Route.Count - 1)
                     route += Cities[Route[i]].Name + " -> ";
                 else

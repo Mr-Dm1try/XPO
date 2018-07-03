@@ -27,8 +27,8 @@ namespace SecondTask.Classes {
                 String str = cityGeoInfo.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos;
 
                 String[] coords = str.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-                longitude = Convert.ToDouble(coords[0]);
-                latitude = Convert.ToDouble(coords[1]);
+                longitude = Convert.ToDouble(coords[0].Replace('.', ','));
+                latitude = Convert.ToDouble(coords[1].Replace('.', ','));
             }
             else {
                 longitude = -1;
