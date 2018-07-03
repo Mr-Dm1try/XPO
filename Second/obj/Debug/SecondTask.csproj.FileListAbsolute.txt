@@ -13,3 +13,6 @@ C:\Users\mrdmi\source\repos\XPO\Second\obj\Debug\SecondTask.csproj.GenerateResou
 C:\Users\mrdmi\source\repos\XPO\Second\obj\Debug\SecondTask.csproj.CoreCompileInputs.cache
 C:\Users\mrdmi\source\repos\XPO\Second\obj\Debug\Second.exe
 C:\Users\mrdmi\source\repos\XPO\Second\obj\Debug\Second.pdb
+C:\Users\mrdmi\source\repos\XPO\Second\bin\Debug\Newtonsoft.Json.dll
+C:\Users\mrdmi\source\repos\XPO\Second\bin\Debug\Newtonsoft.Json.xml
+C:\Users\mrdmi\source\repos\XPO\Second\obj\Debug\SecondTask.csproj.CopyComplete

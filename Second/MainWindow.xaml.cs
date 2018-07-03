@@ -92,19 +92,19 @@ namespace SecondTask {
                 }
 
                 travel.ComputeRoute();
-                textBox4.Text = travel.Cities[0].Coord.longitude.ToString() + " E, " +
-                                travel.Cities[0].Coord.latitude.ToString() + " N";
+                textBox4.Text = travel.Cities[0].Coord.longitude.ToString() + " X, " +
+                                travel.Cities[0].Coord.latitude.ToString() + " Y";
 
-                textBox5.Text = travel.Cities[1].Coord.longitude.ToString() + " E, " +
-                                travel.Cities[1].Coord.latitude.ToString() + " N";
+                textBox5.Text = travel.Cities[1].Coord.longitude.ToString() + " X, " +
+                                travel.Cities[1].Coord.latitude.ToString() + " Y";
 
                 if (textBox2.Text != "") {
-                    textBox6.Text = travel.Cities[2].Coord.longitude.ToString() + " E, " + 
-                                    travel.Cities[2].Coord.latitude.ToString() + " N";  
+                    textBox6.Text = travel.Cities[2].Coord.longitude.ToString() + " X, " + 
+                                    travel.Cities[2].Coord.latitude.ToString() + " Y";  
 
                     if (textBox3.Text != "")
-                        textBox7.Text = travel.Cities[3].Coord.longitude.ToString() + " E, " +
-                                        travel.Cities[3].Coord.latitude.ToString() + " N";
+                        textBox7.Text = travel.Cities[3].Coord.longitude.ToString() + " X, " +
+                                        travel.Cities[3].Coord.latitude.ToString() + " Y";
                 }
 
                 tBox_Route.IsEnabled = true;
