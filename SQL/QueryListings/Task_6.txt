@@ -1,0 +1,5 @@
+NewTableWithSum
+SELECT T2.ID, T2.FirstName, T2.Debt, (SELECT SUM(T1.Debt)
+                                      FROM Clients AS T1
+                                      WHERE T1.ID <= T2.ID) AS Sum INTO Clients1
+FROM Clients AS T2;

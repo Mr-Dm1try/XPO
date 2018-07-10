@@ -1,0 +1,22 @@
+Task #1
+
+SELECT TOP 10 *
+FROM Таблица1;
+
+
+Task #2
+
+SELECT NOW();
+
+
+Task #3
+1)
+SELECT DISTINCT Поле1, Поле2 INTO Таблица3безПовторов
+FROM Таблица3;
+
+2)
+DELETE *
+FROM Таблица3 AS fromDel
+WHERE fromDel.Код NOT IN (SELECT MIN(toDel.Код) 
+                          FROM Таблица3 AS toDel 
+                          GROUP BY toDel.Поле1, toDel.Поле2);

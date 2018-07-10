@@ -1,0 +1,11 @@
+5biggestSalary
+SELECT TOP 5 *
+FROM Employee
+ORDER BY Salary DESC;
+
+SecondSalary
+SELECT *
+FROM (SELECT TOP 2 ID, FirstName, Salary AS Sal 
+	FROM Employee 
+	ORDER BY Salary DESC)  
+WHERE Sal NOT IN (SELECT MAX(Salary) FROM Employee);

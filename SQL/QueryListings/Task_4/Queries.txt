@@ -1,0 +1,15 @@
+Count
+SELECT TeacherID, Count(TandS.TeacherID) AS countT
+FROM TandS
+GROUP BY TandS.TeacherID;
+
+Average
+SELECT AVG(countT) AS avgT
+FROM Count;
+
+TeachersWithBiggestGroups
+SELECT TeacherID, countT
+FROM Count
+WHERE countT > (SELECT AVG(countT) AS avgT
+		FROM Count);
+
