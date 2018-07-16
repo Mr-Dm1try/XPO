@@ -1,7 +1,7 @@
 Task #1
 
 SELECT TOP 10 *
-FROM Таблица1;
+FROM Г’Г ГЎГ«ГЁГ¶Г 1;
 
 
 Task #2
@@ -11,12 +11,12 @@ SELECT NOW();
 
 Task #3
 1)
-SELECT DISTINCT Поле1, Поле2 INTO Таблица3безПовторов
-FROM Таблица3;
+SELECT DISTINCT ГЏГ®Г«ГҐ1, ГЏГ®Г«ГҐ2 INTO Г’Г ГЎГ«ГЁГ¶Г 3ГЎГҐГ§ГЏГ®ГўГІГ®Г°Г®Гў
+FROM Г’Г ГЎГ«ГЁГ¶Г 3;
 
 2)
 DELETE *
-FROM Таблица3 AS fromDel
-WHERE fromDel.Код NOT IN (SELECT MIN(toDel.Код) 
-                          FROM Таблица3 AS toDel 
-                          GROUP BY toDel.Поле1, toDel.Поле2);
+FROM Г’Г ГЎГ«ГЁГ¶Г 3 AS fromDel
+WHERE fromDel.ГЉГ®Г¤ NOT IN (SELECT MIN(toDel.ГЉГ®Г¤) 
+                          FROM Г’Г ГЎГ«ГЁГ¶Г 3 AS toDel 
+                          GROUP BY toDel.ГЏГ®Г«ГҐ1, toDel.ГЏГ®Г«ГҐ2);
