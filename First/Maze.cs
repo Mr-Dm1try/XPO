@@ -32,7 +32,7 @@ namespace FirstTask {
             }
 
             if (!aFlag || !bFlag)
-                throw new Exception();
+                throw new Exception("Start or finish point not found!");
 
             TableToAdjList();
         }
