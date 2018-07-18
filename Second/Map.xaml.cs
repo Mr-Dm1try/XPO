@@ -42,11 +42,19 @@ namespace Second {
             List<PointLatLng> path = new List<PointLatLng>();
             foreach (City c in CurrTravel.GetRouteCts()) {
                 path.Add(new PointLatLng(c.Coord.latitude, c.Coord.longitude));
-            }
 
-            GMapRoute route = new GMapRoute(path);
+                GMapMarker marker = new GMapMarker(new PointLatLng(c.Coord.latitude, c.Coord.longitude)) {
+                    Shape = new System.Windows.Shapes.Ellipse { Stroke = new SolidColorBrush(Colors.DeepSkyBlue), StrokeThickness = 12 }, 
+                    Offset = new Point(-6, -6),
+                    ZIndex = 1
+                };
+                gMapCtrl.Markers.Add(marker);
+            }            
 
-            route.Shape = new Path() { Stroke = new SolidColorBrush(Colors.DarkRed), StrokeThickness = 4 };
+            GMapRoute route = new GMapRoute(path) {                
+                Shape = new Path() { Stroke = new SolidColorBrush(Colors.Purple), StrokeThickness = 4, },
+                ZIndex = 0
+            };            
             gMapCtrl.Markers.Add(route);
 
             /*

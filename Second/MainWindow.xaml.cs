@@ -129,18 +129,18 @@ namespace SecondTask {
                         MessageBox.Show("Fourth city not found!");
                     }
                 
-                textBox4.Text = OurTravel.Cities[0].Coord.longitude.ToString() + " X, " +
+                textBox4.Text = OurTravel.Cities[0].Coord.longitude.ToString() + " X; " +
                                 OurTravel.Cities[0].Coord.latitude.ToString() + " Y";
 
-                textBox5.Text = OurTravel.Cities[1].Coord.longitude.ToString() + " X, " +
+                textBox5.Text = OurTravel.Cities[1].Coord.longitude.ToString() + " X; " +
                                 OurTravel.Cities[1].Coord.latitude.ToString() + " Y";
 
                 if (isThirdExist) 
-                    textBox6.Text = OurTravel.Cities[2].Coord.longitude.ToString() + " X, " + 
+                    textBox6.Text = OurTravel.Cities[2].Coord.longitude.ToString() + " X; " + 
                                     OurTravel.Cities[2].Coord.latitude.ToString() + " Y";  
 
                 if (isFourthExist)
-                    textBox7.Text = OurTravel.Cities[3].Coord.longitude.ToString() + " X, " +
+                    textBox7.Text = OurTravel.Cities[3].Coord.longitude.ToString() + " X; " +
                                     OurTravel.Cities[3].Coord.latitude.ToString() + " Y";
 
                 OurTravel.ComputeRoute();
