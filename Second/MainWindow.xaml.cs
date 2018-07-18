@@ -82,87 +82,97 @@ namespace SecondTask {
         }
 
         private void button_Click(object sender, RoutedEventArgs e) {
-            if (textBox.Text != "" && textBox1.Text != "") {
-                City firstCity, secondCity, thirdCity, fourthCity;
-                Boolean isThirdExist = false, isFourthExist = false;
-                try {
-                    firstCity = new City(textBox.Text);
-                }
-                catch (Exception) {
-                    MessageBox.Show("First city not found!");
-                    return;
-                }
-
-                try {
-                    secondCity = new City(textBox1.Text);
-                }
-                catch (Exception) {
-                    MessageBox.Show("Second city not found!");
-                    return;
-                }
-
-                OurTravel = new Travel();
-                OurTravel.AddCity(firstCity);
-                OurTravel.AddCity(secondCity);
-
-                //travel.AddCity(textBox.Text, 0, 0);
-                //travel.AddCity(textBox1.Text, 1, 1);
-
-                if (textBox2.Text != "") 
+            try {
+                if (textBox.Text != "" && textBox1.Text != "") {
+                    City firstCity, secondCity, thirdCity, fourthCity;
+                    Boolean isThirdExist = false, isFourthExist = false;
                     try {
-                        thirdCity = new City(textBox2.Text);
-                        OurTravel.AddCity(thirdCity);
-                        isThirdExist = true;
+                        firstCity = new City(textBox.Text);
                     }
                     catch (Exception) {
-                        MessageBox.Show("Third city not found!");
+                        MessageBox.Show("First city not found!");
+                        return;
                     }
-                    
 
-                if (textBox3.Text != "")
                     try {
-                        fourthCity = new City(textBox3.Text);
-                        OurTravel.AddCity(fourthCity);
-                        isFourthExist = true;
+                        secondCity = new City(textBox1.Text);
                     }
                     catch (Exception) {
-                        MessageBox.Show("Fourth city not found!");
+                        MessageBox.Show("Second city not found!");
+                        return;
                     }
-                
-                textBox4.Text = OurTravel.Cities[0].Coord.longitude.ToString() + " X; " +
-                                OurTravel.Cities[0].Coord.latitude.ToString() + " Y";
 
-                textBox5.Text = OurTravel.Cities[1].Coord.longitude.ToString() + " X; " +
-                                OurTravel.Cities[1].Coord.latitude.ToString() + " Y";
+                    OurTravel = new Travel();
+                    OurTravel.AddCity(firstCity);
+                    OurTravel.AddCity(secondCity);
 
-                if (isThirdExist) 
-                    textBox6.Text = OurTravel.Cities[2].Coord.longitude.ToString() + " X; " + 
-                                    OurTravel.Cities[2].Coord.latitude.ToString() + " Y";  
+                    //travel.AddCity(textBox.Text, 0, 0);
+                    //travel.AddCity(textBox1.Text, 1, 1);
 
-                if (isFourthExist)
-                    textBox7.Text = OurTravel.Cities[3].Coord.longitude.ToString() + " X; " +
-                                    OurTravel.Cities[3].Coord.latitude.ToString() + " Y";
+                    if (textBox2.Text != "")
+                        try {
+                            thirdCity = new City(textBox2.Text);
+                            OurTravel.AddCity(thirdCity);
+                            isThirdExist = true;
+                        }
+                        catch (Exception) {
+                            MessageBox.Show("Third city not found!");
+                        }
 
-                OurTravel.ComputeRoute();
 
-                tBox_Route.IsEnabled = true;
-                tBox_Route.Text = OurTravel.GetRouteStr();
+                    if (textBox3.Text != "")
+                        try {
+                            fourthCity = new City(textBox3.Text);
+                            OurTravel.AddCity(fourthCity);
+                            isFourthExist = true;
+                        }
+                        catch (Exception) {
+                            MessageBox.Show("Fourth city not found!");
+                        }
 
-                tBox_Dist.IsEnabled = true;
-                tBox_Dist.Text = (OurTravel.RouteLength / 1000).ToString();
-                tBox_Time.IsEnabled = true;
-                tBox_Time.Text = OurTravel.AproxTime;
+                    textBox4.Text = OurTravel.Cities[0].Coord.longitude.ToString() + " X; " +
+                                    OurTravel.Cities[0].Coord.latitude.ToString() + " Y";
 
-                button1.IsEnabled = true;
+                    textBox5.Text = OurTravel.Cities[1].Coord.longitude.ToString() + " X; " +
+                                    OurTravel.Cities[1].Coord.latitude.ToString() + " Y";
+
+                    if (isThirdExist)
+                        textBox6.Text = OurTravel.Cities[2].Coord.longitude.ToString() + " X; " +
+                                        OurTravel.Cities[2].Coord.latitude.ToString() + " Y";
+
+                    if (isFourthExist)
+                        textBox7.Text = OurTravel.Cities[3].Coord.longitude.ToString() + " X; " +
+                                        OurTravel.Cities[3].Coord.latitude.ToString() + " Y";
+
+                    OurTravel.ComputeRoute();
+
+                    tBox_Route.IsEnabled = true;
+                    tBox_Route.Text = OurTravel.GetRouteStr();
+
+                    tBox_Dist.IsEnabled = true;
+                    tBox_Dist.Text = (OurTravel.RouteLength / 1000).ToString();
+                    tBox_Time.IsEnabled = true;
+                    tBox_Time.Text = OurTravel.AproxTime;
+
+                    button1.IsEnabled = true;
+                }
+                else {
+                    MessageBox.Show("Enter at least 2 cities");
+                }
             }
-            else {
-                MessageBox.Show("Enter at least 2 cities");
+            catch (Exception er) {
+                MessageBox.Show("Ooops, error: " + er.Message);
             }
         }
 
         private void button1_Click(object sender, RoutedEventArgs e) {
-            Second.Map routeMap = new Second.Map(OurTravel);
-            routeMap.ShowDialog();
+            try {
+                Second.Map routeMap = new Second.Map(OurTravel);
+                routeMap.ShowDialog();
+            }
+            catch (Exception er) {
+                MessageBox.Show("Ooops, error: " + er.Message);
+            }
         }
 
         protected override void OnClosed(EventArgs e) {

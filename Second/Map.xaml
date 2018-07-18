@@ -9,7 +9,7 @@
         Title="Map" 
         Height="430" Width="645"
         MinHeight="430" MinWidth="645"
-        WindowStartupLocation ="CenterScreen" Activated="Window_Activated">
+        WindowStartupLocation ="CenterScreen">
     <Grid>
 
         <WindowsPresentation:GMapControl x:Name="gMapCtrl" MaxZoom="15" MinZoom="3" Zoom="3" MouseWheelZoomType="MousePositionWithoutCenter"/>
