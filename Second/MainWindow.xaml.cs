@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,9 +24,10 @@ namespace SecondTask {
             InitializeComponent();
             SetRandom = new Random(3);
         }
-
+        
         private static Random SetRandom { get; set; }
         public static Int32 GetRandom { get => SetRandom.Next(0, 101); }
+        private static Travel OurTravel { get; set; }
 
         private void textBox_TextChanged(object sender, TextChangedEventArgs e) {
             String str = (sender as TextBox).GetLineText(0);
@@ -99,9 +101,9 @@ namespace SecondTask {
                     return;
                 }
 
-                Classes.Travel travel = new Classes.Travel();
-                travel.AddCity(firstCity);
-                travel.AddCity(secondCity);
+                OurTravel = new Travel();
+                OurTravel.AddCity(firstCity);
+                OurTravel.AddCity(secondCity);
 
                 //travel.AddCity(textBox.Text, 0, 0);
                 //travel.AddCity(textBox1.Text, 1, 1);
@@ -109,7 +111,7 @@ namespace SecondTask {
                 if (textBox2.Text != "") 
                     try {
                         thirdCity = new City(textBox2.Text);
-                        travel.AddCity(thirdCity);
+                        OurTravel.AddCity(thirdCity);
                         isThirdExist = true;
                     }
                     catch (Exception) {
@@ -120,40 +122,53 @@ namespace SecondTask {
                 if (textBox3.Text != "")
                     try {
                         fourthCity = new City(textBox3.Text);
-                        travel.AddCity(fourthCity);
+                        OurTravel.AddCity(fourthCity);
                         isFourthExist = true;
                     }
                     catch (Exception) {
                         MessageBox.Show("Fourth city not found!");
                     }
                 
-                textBox4.Text = travel.Cities[0].Coord.longitude.ToString() + " X, " +
-                                travel.Cities[0].Coord.latitude.ToString() + " Y";
+                textBox4.Text = OurTravel.Cities[0].Coord.longitude.ToString() + " X, " +
+                                OurTravel.Cities[0].Coord.latitude.ToString() + " Y";
 
-                textBox5.Text = travel.Cities[1].Coord.longitude.ToString() + " X, " +
-                                travel.Cities[1].Coord.latitude.ToString() + " Y";
+                textBox5.Text = OurTravel.Cities[1].Coord.longitude.ToString() + " X, " +
+                                OurTravel.Cities[1].Coord.latitude.ToString() + " Y";
 
                 if (isThirdExist) 
-                    textBox6.Text = travel.Cities[2].Coord.longitude.ToString() + " X, " + 
-                                    travel.Cities[2].Coord.latitude.ToString() + " Y";  
+                    textBox6.Text = OurTravel.Cities[2].Coord.longitude.ToString() + " X, " + 
+                                    OurTravel.Cities[2].Coord.latitude.ToString() + " Y";  
 
                 if (isFourthExist)
-                    textBox7.Text = travel.Cities[3].Coord.longitude.ToString() + " X, " +
-                                    travel.Cities[3].Coord.latitude.ToString() + " Y";
+                    textBox7.Text = OurTravel.Cities[3].Coord.longitude.ToString() + " X, " +
+                                    OurTravel.Cities[3].Coord.latitude.ToString() + " Y";
 
-                travel.ComputeRoute();
+                OurTravel.ComputeRoute();
 
                 tBox_Route.IsEnabled = true;
-                tBox_Route.Text = travel.GetRoute();
+                tBox_Route.Text = OurTravel.GetRouteStr();
 
                 tBox_Dist.IsEnabled = true;
-                tBox_Dist.Text = (travel.RouteLength / 1000).ToString();
+                tBox_Dist.Text = (OurTravel.RouteLength / 1000).ToString();
                 tBox_Time.IsEnabled = true;
-                tBox_Time.Text = travel.AproxTime;
+                tBox_Time.Text = OurTravel.AproxTime;
+
+                button1.IsEnabled = true;
             }
             else {
                 MessageBox.Show("Enter at least 2 cities");
             }
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e) {
+            Second.Map routeMap = new Second.Map(OurTravel);
+            routeMap.ShowDialog();
+        }
+
+        protected override void OnClosed(EventArgs e) {
+            base.OnClosed(e);            
+            
+            Application.Current.Shutdown(0);
         }
     }
 }

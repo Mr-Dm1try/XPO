@@ -16,3 +16,12 @@ C:\Users\mrdmi\source\repos\XPO\Second\obj\Debug\Second.pdb
 C:\Users\mrdmi\source\repos\XPO\Second\bin\Debug\Newtonsoft.Json.dll
 C:\Users\mrdmi\source\repos\XPO\Second\bin\Debug\Newtonsoft.Json.xml
 C:\Users\mrdmi\source\repos\XPO\Second\obj\Debug\SecondTask.csproj.CopyComplete
+C:\Users\mrdmi\source\repos\XPO\Second\bin\Debug\GMap.NET.Core.dll
+C:\Users\mrdmi\source\repos\XPO\Second\bin\Debug\GMap.NET.WindowsPresentation.dll
+C:\Users\mrdmi\source\repos\XPO\Second\bin\Debug\GMap.NET.Core.xml
+C:\Users\mrdmi\source\repos\XPO\Second\bin\Debug\GMap.NET.WindowsPresentation.xml
+C:\Users\mrdmi\source\repos\XPO\Second\obj\Debug\Map.g.cs
+C:\Users\mrdmi\source\repos\XPO\Second\obj\Debug\Map.baml
+C:\Users\mrdmi\source\repos\XPO\Second\obj\Debug\App.baml
+C:\Users\mrdmi\source\repos\XPO\Second\bin\Debug\GMap.NET.WindowsForms.dll
+C:\Users\mrdmi\source\repos\XPO\Second\bin\Debug\GMap.NET.WindowsForms.xml

@@ -44,6 +44,7 @@ namespace SecondTask.Classes {
 
         private void DoRequest() {
             Boolean flag;
+            Int32 i = 0;
             do {
                 flag = false;
                 try {
@@ -61,7 +62,11 @@ namespace SecondTask.Classes {
                 catch (Exception) {
                     flag = true;
                 }
-            } while (flag);
+                i++;
+            } while (flag && i < 250);
+
+            if (i == 250)
+                throw new Exception("Server is not responding");
         }
 
         public Double GetDistance() {

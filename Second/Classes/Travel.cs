@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Second;
 
 namespace SecondTask.Classes {
-    class Travel {
+    public class Travel {
         public List<City> Cities { get; private set; }
         private Int32[,] Graph { get; set; }
 
@@ -92,7 +93,7 @@ namespace SecondTask.Classes {
             }
         }
 
-        public String GetRoute() {
+        public String GetRouteStr() {
             String route = "";
             for (int i = 0; i < Route.Count; i++) {
                 if (i < Route.Count - 1)
@@ -102,6 +103,15 @@ namespace SecondTask.Classes {
             }
 
             return route;
+        }
+
+        public List<City> GetRouteCts() {
+            List<City> result = new List<City>();
+            foreach (int i in Route) {
+                result.Add(Cities[i]);
+            }
+
+            return result;
         }
     }
 }

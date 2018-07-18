@@ -5,12 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SecondTask.Classes {
-    struct Coordinates {
+    public struct Coordinates {
         public Double longitude;
         public Double latitude;
     }
 
-    class City {
+    public class City {
         public String Name { get; }
         public Coordinates Coord { get; }
 

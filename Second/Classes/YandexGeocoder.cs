@@ -68,7 +68,7 @@ namespace SecondTask.Classes {
         public string description { get; set; }
         public string name { get; set; }
         public BoundedBy boundedBy { get; set; }
-        public Point Point { get; set; }
+        public YPoint Point { get; set; }
     }   
 
     class BoundedBy {
@@ -80,7 +80,7 @@ namespace SecondTask.Classes {
         public string upperCorner { get; set; }
     }
 
-    class Point {
+    class YPoint {
         public string pos { get; set; }
     }    
 }
