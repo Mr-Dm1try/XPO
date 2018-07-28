@@ -7,7 +7,7 @@ using System.Net;
 using System.IO;
 using Newtonsoft.Json;
 
-namespace SecondTask.Classes {
+namespace SecondTask.Model {
     class OSRM_PairOfCities {
         private readonly String url = "http://router.project-osrm.org/route/v1/car";
         private PairOfCities Pair { get; set; }

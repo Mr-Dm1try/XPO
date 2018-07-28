@@ -1,12 +1,9 @@
 C:\Users\mrdmi\source\repos\XPO\Second\bin\Debug\Second.exe.config
 C:\Users\mrdmi\source\repos\XPO\Second\bin\Debug\Second.exe
 C:\Users\mrdmi\source\repos\XPO\Second\bin\Debug\Second.pdb
-C:\Users\mrdmi\source\repos\XPO\Second\obj\Debug\SecondTask.csprojAssemblyReference.cache
-C:\Users\mrdmi\source\repos\XPO\Second\obj\Debug\MainWindow.g.cs
 C:\Users\mrdmi\source\repos\XPO\Second\obj\Debug\App.g.cs
 C:\Users\mrdmi\source\repos\XPO\Second\obj\Debug\Second_MarkupCompile.cache
 C:\Users\mrdmi\source\repos\XPO\Second\obj\Debug\Second_MarkupCompile.lref
-C:\Users\mrdmi\source\repos\XPO\Second\obj\Debug\MainWindow.baml
 C:\Users\mrdmi\source\repos\XPO\Second\obj\Debug\Second.g.resources
 C:\Users\mrdmi\source\repos\XPO\Second\obj\Debug\Second.Properties.Resources.resources
 C:\Users\mrdmi\source\repos\XPO\Second\obj\Debug\SecondTask.csproj.GenerateResource.cache
@@ -20,8 +17,11 @@ C:\Users\mrdmi\source\repos\XPO\Second\bin\Debug\GMap.NET.Core.dll
 C:\Users\mrdmi\source\repos\XPO\Second\bin\Debug\GMap.NET.WindowsPresentation.dll
 C:\Users\mrdmi\source\repos\XPO\Second\bin\Debug\GMap.NET.Core.xml
 C:\Users\mrdmi\source\repos\XPO\Second\bin\Debug\GMap.NET.WindowsPresentation.xml
-C:\Users\mrdmi\source\repos\XPO\Second\obj\Debug\Map.g.cs
-C:\Users\mrdmi\source\repos\XPO\Second\obj\Debug\Map.baml
 C:\Users\mrdmi\source\repos\XPO\Second\obj\Debug\App.baml
 C:\Users\mrdmi\source\repos\XPO\Second\bin\Debug\GMap.NET.WindowsForms.dll
 C:\Users\mrdmi\source\repos\XPO\Second\bin\Debug\GMap.NET.WindowsForms.xml
+C:\Users\mrdmi\source\repos\XPO\Second\obj\Debug\View\Map.g.cs
+C:\Users\mrdmi\source\repos\XPO\Second\obj\Debug\View\Map.baml
+C:\Users\mrdmi\source\repos\XPO\Second\obj\Debug\SecondTask.csprojAssemblyReference.cache
+C:\Users\mrdmi\source\repos\XPO\Second\obj\Debug\View\MainWindow.g.cs
+C:\Users\mrdmi\source\repos\XPO\Second\obj\Debug\View\MainWindow.baml

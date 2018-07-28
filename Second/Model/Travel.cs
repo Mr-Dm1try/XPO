@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Second;
 
-namespace SecondTask.Classes {
+namespace SecondTask.Model {
     public class Travel {
-        public List<City> Cities { get; private set; }
         private Int32[,] Graph { get; set; }
-
-        public Int32 RouteLength { get; private set; }
         private List<Int32> Route { get; set; }
-        public String AproxTime { get; private set; }
-        
+
+        public List<City> Cities { get; set; }
+
+        public Int32 RouteLength { get; set; }
+
+        public String AproxTime { get; set; }
+
+
         public Travel() {
             Cities = new List<City>();
             Graph = new Int32[4, 4];
@@ -21,8 +21,7 @@ namespace SecondTask.Classes {
             
             for (int i = 0; i < 4; i++)
                 for (int j = 0; j < 4; j++)
-                    Graph[i, j] = 0;
-            
+                    Graph[i, j] = 0;            
         }
 
         public void AddCity(City newCity) {
@@ -57,8 +56,6 @@ namespace SecondTask.Classes {
             }
 
             AproxTime = (sec / 3600).ToString() + " h  " + ((sec % 3600) / 60).ToString() + " m";
-
-            //Int32 sec = (Int32) Math.Round(RouteLength / 0.025); //90 км/ч в км/с
         }
 
         private void Algorithm(Int32 step, Int32 currVert, Int32[] currRoute, Int32 vertCount, Int32[,] matx) {

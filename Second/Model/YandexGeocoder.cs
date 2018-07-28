@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace SecondTask.Classes {
+namespace SecondTask.Model {
     class YandexGC {
         private static readonly String url = "https://geocode-maps.yandex.ru/1.x/?format=json&geocode=";
 

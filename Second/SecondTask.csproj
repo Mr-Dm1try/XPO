@@ -66,7 +66,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
+    <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -74,21 +74,24 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Classes\City.cs" />
-    <Compile Include="Classes\OSRM.cs" />
-    <Compile Include="Classes\Travel.cs" />
-    <Compile Include="Classes\YandexGeocoder.cs" />
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="DelegateCommand.cs" />
+    <Compile Include="Model\City.cs" />
+    <Compile Include="Model\OSRM.cs" />
+    <Compile Include="Model\Travel.cs" />
+    <Compile Include="Model\YandexGeocoder.cs" />
+    <Compile Include="ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="ViewModel\MapModel.cs" />
+    <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Map.xaml">
+    <Page Include="View\Map.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Map.xaml.cs">
+    <Compile Include="View\Map.xaml.cs">
       <DependentUpon>Map.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">

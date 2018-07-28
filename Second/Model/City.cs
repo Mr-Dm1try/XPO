@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SecondTask.Classes {
+namespace SecondTask.Model {
     public struct Coordinates {
         public Double longitude;
         public Double latitude;
@@ -13,6 +13,7 @@ namespace SecondTask.Classes {
     public class City {
         public String Name { get; }
         public Coordinates Coord { get; }
+        public String StrCoords { get; }
 
         public City (String name) {
             Name = name;
@@ -21,13 +22,14 @@ namespace SecondTask.Classes {
             YandexGC.GetCoordinates(Name, ref tmp1, ref tmp2);
 
             if (tmp1 == -1 || tmp2 == -1)
-                throw new Exception();
+                throw new Exception("Not Found!");
             else {
                 Coord = new Coordinates {
                     longitude = tmp1,
                     latitude = tmp2
                 };
             }
+            StrCoords = Coord.latitude.ToString() + " Y; " + Coord.longitude.ToString() + " X";
         }
 
         public Int32 GetPathLength(City secondCity) {
@@ -42,14 +44,15 @@ namespace SecondTask.Classes {
             return Coord.longitude.ToString().Replace(',', '.') + ',' + Coord.latitude.ToString().Replace(',', '.');
         }
 
-        public City(string name, double x, double y) {  //for random filling
-            Name = name;
-            Coord = new Coordinates {
-                longitude = x,
-                latitude = y
-            };
-        }        
+        //for random filling
+        //public City(string name, double x, double y) {  
+        //    Name = name;
+        //    Coord = new Coordinates {
+        //        longitude = x,
+        //        latitude = y
+        //    };
+        //}        
 
-        public Int32 GetPathLength() => MainWindow.GetRandom;   //for random filling
+        //public Int32 GetPathLength() => MainWindow.GetRandom;
     }
 }

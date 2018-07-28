@@ -1,0 +1,156 @@
+﻿<Window x:Class="SecondTask.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SecondTask.View"
+        xmlns:viewModel="clr-namespace:SecondTask.ViewModel"
+        mc:Ignorable="d"
+        Title="Finding the route" 
+        Height="430" Width="645"
+        MinHeight="430" MinWidth="645"
+        WindowStartupLocation ="CenterScreen">
+
+    <Window.Resources>
+        <Style TargetType="Label" x:Key="baseLabel">
+            <Setter Property="Margin" Value="12"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+        
+        <Style TargetType="TextBox" x:Key="baseTBox">
+            <Setter Property="Margin" Value="14"/>
+            <Setter Property="Height" Value="27"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="AcceptsTab" Value="True"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="143*" />
+            <ColumnDefinition Width="89*" />
+            <ColumnDefinition Width="175"/>
+        </Grid.ColumnDefinitions>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="218*" />
+            <RowDefinition Height="60*" MinHeight="60" />
+            <RowDefinition Height="60*" MinHeight="60"/>
+            <RowDefinition Height="61*"/>
+        </Grid.RowDefinitions>
+        
+        
+        <StackPanel HorizontalAlignment="Left" Width="121" VerticalAlignment="Bottom" Height="218">
+            <Label x:Name="label"  Style="{StaticResource baseLabel}" Content="First city:"/>
+            <Label x:Name="label1" Style="{StaticResource baseLabel}" Content="Second city:"/>
+            <Label x:Name="label2" Style="{StaticResource baseLabel}" Content="Third city:"/>
+            <Label x:Name="label3" Style="{StaticResource baseLabel}" Content="Fourth city:"/>
+        </StackPanel>
+
+        <StackPanel  Margin="121,0,0,0" VerticalAlignment="Bottom" Height="218">
+            <TextBox x:Name="txt1City" Text="{Binding City1}" Style="{StaticResource baseTBox}" TextChanged="txt1City_TextChanged"/>
+            <TextBox x:Name="txt2City" Text="{Binding City2}" Style="{StaticResource baseTBox}" TextChanged="txt2City_TextChanged"/>
+            <TextBox x:Name="txt3City" Text="{Binding City3}" Style="{StaticResource baseTBox}" TextChanged="txt3City_TextChanged"/>
+            <TextBox x:Name="txt4City" Text="{Binding City4}" Style="{StaticResource baseTBox}" TextChanged="txt4City_TextChanged"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" VerticalAlignment="Bottom" Height="218">
+            <TextBox x:Name="txt1Coord" Style="{StaticResource baseTBox}" Text="{Binding Coord1}" IsReadOnly="True" IsEnabled="False"/>
+            <TextBox x:Name="txt2Coord" Style="{StaticResource baseTBox}" Text="{Binding Coord2}" IsReadOnly="True" IsEnabled="False"/>
+            <TextBox x:Name="txt3Coord" Style="{StaticResource baseTBox}" Text="{Binding Coord3}" IsReadOnly="True" IsEnabled="False"/>
+            <TextBox x:Name="txt4Coord" Style="{StaticResource baseTBox}" Text="{Binding Coord4}" IsReadOnly="True" IsEnabled="False"/>
+        </StackPanel>
+
+        
+        <Button x:Name="bt_GetRoute" 
+                Command="{Binding GetRouteCommand}" 
+                CommandParameter="{Binding Cities}" 
+                Content="Get Route" 
+                Margin="0,0,28,94" 
+                FontSize="16" 
+                Grid.Column="2" 
+                HorizontalAlignment="Right" 
+                Width="121" 
+                Height="82" 
+                VerticalAlignment="Bottom"/>
+
+        <Label x:Name="lab_Route" 
+               Content="Route:" 
+               HorizontalAlignment="Left" 
+               Margin="22,0,0,0" 
+               VerticalAlignment="Center" 
+               FontSize="16" Width="75" 
+               Height="31" 
+               Grid.Row="1"/>        
+        <TextBox x:Name="tB_Route" 
+                 Text="{Binding Route}" 
+                 Margin="97,0,28,0" 
+                 TextWrapping="Wrap" 
+                 FontSize="16" 
+                 IsReadOnly="True" 
+                 Grid.ColumnSpan="3" 
+                 Height="27" 
+                 VerticalAlignment="Center" 
+                 Grid.Row="1"/>
+
+        <Label x:Name="lab_Time" 
+               Content="Approximate travel time:" 
+               Margin="22,0,0,0" 
+               FontSize="16" 
+               HorizontalAlignment="Left" 
+               Width="190" 
+               Grid.Row="2" 
+               Height="31" 
+               VerticalAlignment="Center"/>
+        <TextBox x:Name="tBox_Time" 
+                 Text="{Binding AproxTime}" 
+                 Margin="212,16,155,16" 
+                 FontSize="16" 
+                 IsReadOnly="True" 
+                 Grid.Row="2" 
+                 Grid.ColumnSpan="2" 
+                 Height="28" 
+                 VerticalAlignment="Center"/>
+
+        <Label x:Name="lab_Dist" 
+               Content="Distance:" 
+               VerticalAlignment="Center" 
+               HorizontalAlignment="Left" 
+               Margin="22,0,0,0" 
+               FontSize="16" 
+               Width="75" 
+               Height="31" 
+               Grid.Row="3"/>
+        <TextBox x:Name="tB_Dist" 
+                 Text="{Binding RouteLength}" 
+                 VerticalAlignment="Center" 
+                 Height="27" 
+                 Margin="124,0,55,0"  
+                 FontSize="16" 
+                 IsReadOnly="True"
+                 Grid.Row="3"/>
+        <Label x:Name="lab_DistKM" 
+               Content="km" 
+               Margin="0,0,20,0" 
+               VerticalAlignment="Center" 
+               FontSize="16" 
+               Height="31" 
+               Grid.Row="3" 
+               HorizontalAlignment="Right" 
+               Width="35" 
+               RenderTransformOrigin="0.543,0.645"/>
+
+        <Button x:Name="bt_Map" 
+                Command ="{Binding ShowMapCommand}" 
+                CommandParameter="{Binding NewTravel}"
+                Content="Show Map" 
+                Grid.Column="2" 
+                HorizontalAlignment="Right" 
+                Margin="0,0,28,13" 
+                VerticalAlignment="Bottom" 
+                Width="121" 
+                FontSize="16" 
+                Height="40"/>
+
+    </Grid>
+</Window>
