@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Second;
 
 namespace SecondTask.Classes {
     public class Travel {
@@ -21,8 +18,7 @@ namespace SecondTask.Classes {
             
             for (int i = 0; i < 4; i++)
                 for (int j = 0; j < 4; j++)
-                    Graph[i, j] = 0;
-            
+                    Graph[i, j] = 0;            
         }
 
         public void AddCity(City newCity) {
@@ -57,8 +53,6 @@ namespace SecondTask.Classes {
             }
 
             AproxTime = (sec / 3600).ToString() + " h  " + ((sec % 3600) / 60).ToString() + " m";
-
-            //Int32 sec = (Int32) Math.Round(RouteLength / 0.025); //90 км/ч в км/с
         }
 
         private void Algorithm(Int32 step, Int32 currVert, Int32[] currRoute, Int32 vertCount, Int32[,] matx) {

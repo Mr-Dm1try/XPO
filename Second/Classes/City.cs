@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SecondTask.Classes {
     public struct Coordinates {
@@ -42,14 +38,14 @@ namespace SecondTask.Classes {
             return Coord.longitude.ToString().Replace(',', '.') + ',' + Coord.latitude.ToString().Replace(',', '.');
         }
 
-        public City(string name, double x, double y) {  //for random filling
-            Name = name;
-            Coord = new Coordinates {
-                longitude = x,
-                latitude = y
-            };
-        }        
-
-        public Int32 GetPathLength() => MainWindow.GetRandom;   //for random filling
+        //for random filling
+        //public City(string name, double x, double y) {  
+        //    Name = name;
+        //    Coord = new Coordinates {
+        //        longitude = x,
+        //        latitude = y
+        //    };
+        //} 
+        //public Int32 GetPathLength() => MainWindow.GetRandom;  
     }
 }

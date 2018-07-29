@@ -1,18 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using SecondTask.Classes;
 
 namespace SecondTask {
@@ -22,11 +10,8 @@ namespace SecondTask {
     public partial class MainWindow : Window {
         public MainWindow() {
             InitializeComponent();
-            SetRandom = new Random(3);
         }
         
-        private static Random SetRandom { get; set; }
-        public static Int32 GetRandom { get => SetRandom.Next(0, 101); }
         private static Travel OurTravel { get; set; }
 
         private void textBox_TextChanged(object sender, TextChangedEventArgs e) {
@@ -105,10 +90,7 @@ namespace SecondTask {
                     OurTravel = new Travel();
                     OurTravel.AddCity(firstCity);
                     OurTravel.AddCity(secondCity);
-
-                    //travel.AddCity(textBox.Text, 0, 0);
-                    //travel.AddCity(textBox1.Text, 1, 1);
-
+                    
                     if (textBox2.Text != "")
                         try {
                             thirdCity = new City(textBox2.Text);
@@ -118,7 +100,6 @@ namespace SecondTask {
                         catch (Exception) {
                             MessageBox.Show("Third city not found!");
                         }
-
 
                     if (textBox3.Text != "")
                         try {
